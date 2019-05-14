@@ -18,9 +18,9 @@ public class Client extends JFrame implements ActionListener {
     private DataInputStream dataInputStream;
     private DataOutputStream dataOutputStream;
 
+    //GUI block
     private JTextField jtextFieldInput;
     private JTextArea jtAreaOutput;
-
     private JTextField jTextField;
 
 
@@ -65,6 +65,7 @@ public class Client extends JFrame implements ActionListener {
         return name;
     }
 
+    //GUI implement
     public void createGui() {
         jtextFieldInput = new JTextField(100);
 
@@ -103,7 +104,7 @@ public class Client extends JFrame implements ActionListener {
         sendMessage(text);
     }
 
-    private void sendMessage(String text){
+    private void sendMessage(String text) {
         try {
             // write on the output stream
             dataOutputStream.writeUTF(getClientName() + ":" + text);
@@ -113,8 +114,9 @@ public class Client extends JFrame implements ActionListener {
         }
     }
 
-    private void addAreaFieldMessage(String message){
-        jtAreaOutput.append(LocalDateTime.now() +" : "+ message + "\n");
+    private void addAreaFieldMessage(String message) {
+        //JPanel easy solved with depreciated field. to ignore!
+        jtAreaOutput.append(LocalDateTime.now() + " : " + message + "\n");
     }
 
     private void createModalWindow() {
